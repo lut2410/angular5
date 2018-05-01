@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable'
-interface myStore {
-  message: string;
+import {Post} from './post'
+import * as PostActions from './post.actions'
+
+interface AppState {
+  post:Post
 }
 @Component({
   selector: 'app-root',
@@ -11,17 +14,24 @@ interface myStore {
 })
 export class AppComponent {
   title = 'app';
-  message: Observable<string>
+  post: Observable<Post>
+  text
   // constructor(private store: Store<AppStat>) {
   //   this.message$ = this.store.select('messag');
   // }
-  constructor(private store: Store<myStore>) {
-    this.message = this.store.select('message');
+  constructor(private store: Store<AppState>) {
+    this.post = this.store.select('post');
   }
-  spMess() {
-    this.store.dispatch({ type: 'SPANISH' })
+  editText() {
+    this.store.dispatch(new PostActions.EditText(this.text))
   }
-  frMess() {
-    this.store.dispatch({ type: 'FRENCH' })
+  reset() {
+    this.store.dispatch(new PostActions.Reset())
+  }
+  upvote() {
+    this.store.dispatch(new PostActions.Upvote())
+  }
+  downvote() {
+    this.store.dispatch(new PostActions.Downvote())
   }
 }
