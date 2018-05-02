@@ -23,16 +23,47 @@
       ],
       "stylePreprocessorOptions": {
         "includePaths": [
-            "",
-            "environments/jobscentral"
+          "",
+          "environments/jobscentral"
         ]
-    },
+      },
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }
+    },
+    {
+      "root": "src",
+      "outDir": "dist-server",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.server.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.server.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.css"
+      ],
+      "stylePreprocessorOptions": {
+        "includePaths": [
+          "",
+          "environments/jobscentral"
+        ]
+      },
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      },
+      "platform": "server",
+      "name": "project-name"
     }
   ],
   "e2e": {
