@@ -21,6 +21,12 @@
       "styles": [
         "styles.css"
       ],
+      "stylePreprocessorOptions": {
+        "includePaths": [
+            "",
+            "environments/jobscentral"
+        ]
+    },
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
