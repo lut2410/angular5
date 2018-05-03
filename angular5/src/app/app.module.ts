@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { HeaderTemplateComponent } from '../header.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderTemplateComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
