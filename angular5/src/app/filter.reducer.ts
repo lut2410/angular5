@@ -1,25 +1,23 @@
 import * as FilterActions from './filter.actions'
-import { FilterState, initialState, newState } from './filter.state'
+import { FilterState, initialState, newState, initialdataState } from './filter.state'
 export type FilterAction = FilterActions.FilterActions;
 
 export function filterReducer(state: FilterState = initialState, action: FilterAction) {
-    console.log(action.type, state)
+    console.log(action.type,'old state',state,'payload',action.payload )
     switch (action.type) {
         case FilterActions.SET_UP:
             if (action.payload)
                 return { ...action.payload }
             else
-                return initialState
+                return {...initialState}
         case FilterActions.NEXT_PAGE:
-            // return {...state}
-            // let newState = JSON.parse(JSON.stringify(state));
-            let newState=Object.assign({}, state);
+            let newState = Object.assign({}, state);
             newState.pageIndex++;
             return { ...newState }
-        // return {state}
-        // return newState({}, state)
-        case FilterActions.NEXT_PAGE_COMPLETE:
-        // return newState({}, state.pageIndex + 1)
-        // return {state}
+
+        case FilterActions.GET_USER:
+            return { ...state }
+
     }
 }
+

@@ -2,17 +2,20 @@ import { Action } from "@ngrx/store";
 
 export const SET_UP = '[FILTER] Set up'
 export const NEXT_PAGE = '[FILTER] Next Page'
-export const NEXT_PAGE_COMPLETE = '[FILTER] Next Page Complete'
+export const GET_USER = '[USER] Get User'
 
-export class SetUp implements Action{
-readonly type = SET_UP;
-constructor(public payload: any=null){}
+export class SetUp implements Action {
+    readonly type = SET_UP;
+    constructor(public payload: any = null) { }
 }
-export class NextPage implements Action{
+export class NextPage implements Action {
     readonly type = NEXT_PAGE;
+    constructor(public payload: any = null) { }
 }
-export class NextPageComplete implements Action{
-    readonly type = NEXT_PAGE_COMPLETE;
-    
+export class GetUser implements Action {
+    readonly type = GET_USER;
+    constructor(public payload) {
+     }
+
 }
-export type FilterActions = SetUp|NextPage|NextPageComplete;
+export type FilterActions = SetUp | NextPage | GetUser;

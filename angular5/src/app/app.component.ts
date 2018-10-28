@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { Store, State } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable'
 import {FilterState} from './filter.state'
 import * as FilterAction from './filter.actions'
 
-interface AppState {
-  filterSt:any
-}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,13 +11,15 @@ interface AppState {
 })
 export class AppComponent {
   title = 'app';
-  filter: FilterState;
+  filter: any;
+  data: any;
   // constructor(private store: Store<AppStat>) {
   //   this.message$ = this.store.select('messag');
   // }
   constructor(private store: Store<AppState>) {
     this.store.dispatch(new FilterAction.SetUp());
     this.store.select('filterSt').subscribe(filter=>this.filter=filter);
+    // this.store.select('data').subscribe(data=>this.data=data);
   }
   setupDefault() {
     this.store.dispatch(new FilterAction.SetUp())
@@ -34,5 +33,8 @@ export class AppComponent {
   }
   scroll() {
     this.store.dispatch(new FilterAction.NextPage())
+    // var filter = {search: '',    pageIndex: 1}
+    // this.store.dispatch(new FilterAction.GetUser(filter));
+
   }
 }
