@@ -1,5 +1,6 @@
-<!-- <div *ngIf="post|async as p"> -->
-  <h2>{{post.text}}</h2>
-  <h4>{{post.likes}}</h4>
-  <button (click)="upvote()">Upvote</button>
-  <!-- </div> -->
+
+  <h2>{{filter.search}}</h2>
+  <h4>{{filter.pageIndex}}</h4>
+  <button (click)="setupDefault()">Set up default</button>
+  <button (click)="setupFilter()">Set up by variables</button>
+  <button (click)="scroll()">Scroll</button>

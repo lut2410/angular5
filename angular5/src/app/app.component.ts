@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, State } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable'
-import {Post} from './post'
-import * as PostActions from './post.actions'
+import {FilterState} from './filter.state'
+import * as FilterAction from './filter.actions'
 
 interface AppState {
-  post:Post
+  filterSt:any
 }
 @Component({
   selector: 'app-root',
@@ -14,24 +14,25 @@ interface AppState {
 })
 export class AppComponent {
   title = 'app';
-  post: Observable<Post>
-  text
+  filter: FilterState;
   // constructor(private store: Store<AppStat>) {
   //   this.message$ = this.store.select('messag');
   // }
   constructor(private store: Store<AppState>) {
-    this.post = this.store.select('post');
+    this.store.dispatch(new FilterAction.SetUp());
+    this.store.select('filterSt').subscribe(filter=>this.filter=filter);
   }
-  editText() {
-    this.store.dispatch(new PostActions.EditText(this.text))
+  setupDefault() {
+    this.store.dispatch(new FilterAction.SetUp())
   }
-  reset() {
-    this.store.dispatch(new PostActions.Reset())
+  setupFilter()
+  {
+    let filterVariables = {} as FilterState;
+    filterVariables.search='search string';
+    filterVariables.pageIndex=3;
+    this.store.dispatch(new FilterAction.SetUp(filterVariables))
   }
-  upvote() {
-    this.store.dispatch(new PostActions.Upvote())
-  }
-  downvote() {
-    this.store.dispatch(new PostActions.Downvote())
+  scroll() {
+    this.store.dispatch(new FilterAction.NextPage())
   }
 }

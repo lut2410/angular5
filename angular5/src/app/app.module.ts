@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {StoreModule} from '@ngrx/store'
-import {postReducer} from './post.reducer';
+import {filterReducer} from './filter.reducer';
 
 
 @NgModule({
@@ -11,7 +11,8 @@ import {postReducer} from './post.reducer';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({message:postReducer})
+    StoreModule.forRoot({filterSt:filterReducer}),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
