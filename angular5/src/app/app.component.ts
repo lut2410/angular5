@@ -9,13 +9,43 @@ import { ok } from 'assert';
 })
 export class AppComponent {
   title = 'app';
-  companies = Array<string>("Orient","CXS","DXC");
-  value:any
+  companies = Array<Object>(
+    {id : 1 , text: "Orient"},
+    {id : 2 , text: "DXC"},
+    {id : 3 , text: "CSC"},
+    {id : 1 , text: "Orient"},
+    {id : 2 , text: "DXC"},
+    {id : 3 , text: "CSC"},
+    {id : 1 , text: "Orient"},
+    {id : 2 , text: "DXC"},
+    {id : 3 , text: "CSC"},
+    {id : 1 , text: "Orient"},
+    {id : 2 , text: "DXC"},
+    {id : 3 , text: "CSC"},
+    {id : 1 , text: "Orient"},
+    {id : 2 , text: "DXC"},
+    {id : 3 , text: "CSC"},
+    {id : 1 , text: "Orient"},
+    {id : 2 , text: "DXC"},
+    {id : 3 , text: "CSC"},
+    {id : 1 , text: "Orient"},
+    {id : 2 , text: "DXC"},
+    {id : 3 , text: "CSC"},
+    {id : 1 , text: "Orient"},
+    {id : 2 , text: "DXC"},
+    {id : 3 , text: "CSC"},
+    {id : 1 , text: "Orient"},
+    {id : 2 , text: "DXC"},
+    {id : 3 , text: "CSC"},
+    {id : 1 , text: "Orient"},
+    {id : 2 , text: "DXC"},
+    {id : 3 , text: "CSC"});
+    selected:any
   // constructor(private config: NgSelectConfig) {
     // this.config.notFoundText = 'Custom not found';
 //     // this.config.clearAllText = "Clear all companies filter";
 // }
 OK(){
-  console.log(this.value)
+  console.log(this.selected)
 }
 }
